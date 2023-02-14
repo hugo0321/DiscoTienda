@@ -18,6 +18,8 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 /**
  * Es la clase que representa la tienda virtual con sus discos. <br>
  * <b>inv: </b> <br>
@@ -528,11 +530,11 @@ public class Discotienda
  		// Crear la pluma para escribir en el archivo
 
  		PrintWriter plumas = new PrintWriter(archivos);
-
+ 		String genero = JOptionPane.showInputDialog("Escriba el genero a buscar");
  		// Escribir con la pluma en el archivo
- 		plumas.println("Informe discos costosos del Genero Pop");
+ 		plumas.println("Informe discos costosos del Genero "+genero);
  		plumas.println("======================================");
-
+ 		
  		// Recorrido total por todos los discos
  		for (int i = 0; i < discos.size(); i++) {
  			// Extraer información de cada disco
@@ -540,9 +542,9 @@ public class Discotienda
 
  			// Condicional para recolectar solo la información de los discos de género Pop
  			// Que tengan un precio superior a 1000
-
- 			if (miDisco.darGenero().equals("Pop") && miDisco.darPrecioDisco() > 1000) {
-
+ 			
+ 			if (miDisco.darGenero().equals(genero) && miDisco.darPrecioDisco() > 1000) {
+ 				
  				// escribir con la pluma la información requerida en el archivo
  				plumas.println("Nombre  :" + miDisco.darNombreDisco() + "\n" 
  				             + "Artista : " + miDisco.darArtista()+ "\n" + 
@@ -555,7 +557,7 @@ public class Discotienda
  		// Cerrar la pluma
  		plumas.close();
  	}
-     	//String genero = JOptionPane.showInputDialog("Escriba el genero a buscar");
+     	
 
 
     // -----------------------------------------------------------------

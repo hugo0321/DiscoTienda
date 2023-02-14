@@ -1,0 +1,12 @@
+Informe discos costosos del Genero Rock
+======================================
+Nombre  :Is This It
+Artista : The Strokes
+Género  : Rock
+Precio  : 3600.0
+================================
+Nombre  :Elephant
+Artista : The White Stripes
+Género  : Rock
+Precio  : 2600.0
+================================
