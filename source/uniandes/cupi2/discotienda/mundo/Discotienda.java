@@ -529,7 +529,7 @@ public class Discotienda
 
  		PrintWriter plumas = new PrintWriter(archivos);
 
- 		// Escribir con la pluma en el disco
+ 		// Escribir con la pluma en el archivo
  		plumas.println("Informe discos costosos del Genero Pop");
  		plumas.println("======================================");
 
