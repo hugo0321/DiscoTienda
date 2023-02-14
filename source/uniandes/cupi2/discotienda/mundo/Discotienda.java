@@ -505,10 +505,12 @@ public class Discotienda
      	
      	for(int i =0;i<discos.size();i++) {
      		Disco miDisco=(Disco)discos.get(i);
-     		pluma.println("Nombre "+ miDisco.darNombreDisco()+
-     				      "Artista "+ miDisco.darArtista()+
-     				      "Género "+ miDisco.darGenero()
-     				);
+     		// escribir con la pluma la información requerida en el archivo
+				pluma.println("Nombre  :" + miDisco.darNombreDisco() + "\n" 
+				             + "Artista : " + miDisco.darArtista()+ "\n" + 
+						       "Género  : " + miDisco.darGenero() + "\n" 
+				             + "Precio  : " + miDisco.darPrecioDisco()+ "\n" 
+						       + "================================");
      	}
      	
      	pluma.close();	
