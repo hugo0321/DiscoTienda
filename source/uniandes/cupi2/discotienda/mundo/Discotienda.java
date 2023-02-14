@@ -492,7 +492,68 @@ public class Discotienda
         }
         return false;
     }
-    
+    /**
+     * Generar informe
+     * @throws FileNotFoundException
+     */
+     public void generarInformeDiscos() throws FileNotFoundException
+     {
+     	File archivo = new File("./data/ReporteDiscos.txt");
+     	PrintWriter pluma= new PrintWriter (archivo);
+     	pluma.println("Reporte de discos");
+     	pluma.println("=================");
+     	
+     	for(int i =0;i<discos.size();i++) {
+     		Disco miDisco=(Disco)discos.get(i);
+     		pluma.println("Nombre "+ miDisco.darNombreDisco()+
+     				      "Artista "+ miDisco.darArtista()+
+     				      "Género "+ miDisco.darGenero()
+     				);
+     	}
+     	
+     	pluma.close();	
+     }
+     
+     /**Reporte discos costosos del género Pop
+      * @throws FileNotFoundException-Cuando no existe la ruta de guardado
+      */
+ 	public void informeDiscosCaros() throws FileNotFoundException {
+
+ 		// Crear el archivo de tipo FILE
+
+ 		File archivos = new File("./data/discosCostosos.txt");
+
+ 		// Crear la pluma para escribir en el archivo
+
+ 		PrintWriter plumas = new PrintWriter(archivos);
+
+ 		// Escribir con la pluma en el disco
+ 		plumas.println("Informe discos costosos del Genero Pop");
+ 		plumas.println("======================================");
+
+ 		// Recorrido total por todos los discos
+ 		for (int i = 0; i < discos.size(); i++) {
+ 			// Extraer información de cada disco
+ 			Disco miDisco = (Disco) discos.get(i);
+
+ 			// Condicional para recolectar solo la información de los discos de género Pop
+ 			// Que tengan un precio superior a 1000
+
+ 			if (miDisco.darGenero().equals("Pop") && miDisco.darPrecioDisco() > 1000) {
+
+ 				// escribir con la pluma la información requerida en el archivo
+ 				plumas.println("Nombre  :" + miDisco.darNombreDisco() + "\n" 
+ 				             + "Artista : " + miDisco.darArtista()+ "\n" + 
+ 						       "Género  : " + miDisco.darGenero() + "\n" 
+ 				             + "Precio  : " + miDisco.darPrecioDisco()+ "\n" 
+ 						       + "================================");
+ 			}
+
+ 		}
+ 		// Cerrar la pluma
+ 		plumas.close();
+ 	}
+     	//String genero = JOptionPane.showInputDialog("Escriba el genero a buscar");
 
 
     // -----------------------------------------------------------------
@@ -505,7 +566,12 @@ public class Discotienda
      */
     public String metodo1( )
     {
-        return "respuesta 1";
+    	try {
+        	generarInformeDiscos();
+        	return "reporte generado exitosamente";
+        }catch(Exception e) {
+        	return e.getMessage();
+        }
     }
 
     /**
@@ -514,7 +580,12 @@ public class Discotienda
      */
     public String metodo2( )
     {
-    	return "respuesta 2";
+    	try {
+    		informeDiscosCaros();
+        	return "reporte generado ";
+        }catch(Exception e) {
+        	return "error"+e.getMessage();
+        }
     }
 
     /**
